@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Propuesta Comercial | Hotel Botánico</title>
+  <style>
+    :root {
+      --bg: #06050a;
+      --panel: #111018;
+      --panel-soft: #171420;
+      --text: #f7f3ff;
+      --muted: #c9c0d8;
+      --violet: #9d5cff;
+      --violet-soft: #c69cff;
+      --line: rgba(198, 156, 255, 0.24);
+      --shadow: rgba(0, 0, 0, 0.42);
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(157, 92, 255, 0.18), transparent 28rem),
+        linear-gradient(145deg, #050408 0%, #0b0912 46%, #06050a 100%);
+      line-height: 1.6;
+    }
+
+    .page {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+      padding: 56px 22px;
+    }
+
+    .hero {
+      min-height: 68vh;
+      display: grid;
+      align-content: center;
+      gap: 34px;
+      padding: 34px 0 58px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      color: var(--violet-soft);
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0;
+      border-radius: 999px;
+      background: rgba(157, 92, 255, 0.08);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      max-width: 860px;
+      font-size: clamp(42px, 8vw, 92px);
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 710px;
+      color: var(--muted);
+      font-size: clamp(18px, 2.5vw, 23px);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .price-panel,
+    .summary-panel,
+    .section,
+    .next-step {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025));
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 22px 70px var(--shadow);
+    }
+
+    .summary-panel {
+      padding: 28px;
+      display: grid;
+      gap: 22px;
+    }
+
+    .summary-item span {
+      display: block;
+      color: var(--violet-soft);
+      font-size: 13px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .summary-item strong {
+      display: block;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .price-panel {
+      padding: 28px;
+      background:
+        linear-gradient(145deg, rgba(157, 92, 255, 0.22), rgba(17, 16, 24, 0.94)),
+        var(--panel);
+      display: grid;
+      align-content: space-between;
+      gap: 30px;
+    }
+
+    .price-label {
+      color: var(--violet-soft);
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .price {
+      font-size: clamp(42px, 7vw, 70px);
+      line-height: 1;
+      font-weight: 700;
+      margin-top: 8px;
+    }
+
+    .price-note {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .content {
+      display: grid;
+      gap: 18px;
+      padding-top: 28px;
+    }
+
+    .section {
+      padding: clamp(24px, 4vw, 38px);
+    }
+
+    .section h2 {
+      font-size: clamp(26px, 4vw, 42px);
+      line-height: 1.08;
+      margin-bottom: 16px;
+    }
+
+    .section p {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 850px;
+    }
+
+    .two-columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .list {
+      display: grid;
+      gap: 12px;
+      margin: 20px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .list li {
+      position: relative;
+      padding: 16px 16px 16px 44px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(198, 156, 255, 0.16);
+      border-radius: 8px;
+      color: #eee8fa;
+    }
+
+    .list li::before {
+      content: "";
+      position: absolute;
+      left: 16px;
+      top: 22px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--violet);
+      box-shadow: 0 0 22px rgba(157, 92, 255, 0.8);
+    }
+
+    .next-step {
+      padding: clamp(28px, 5vw, 48px);
+      background:
+        linear-gradient(120deg, rgba(157, 92, 255, 0.24), rgba(255, 255, 255, 0.035)),
+        var(--panel-soft);
+    }
+
+    .next-step h2 {
+      font-size: clamp(30px, 5vw, 54px);
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+
+    .next-step p {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 19px;
+    }
+
+    .footer {
+      padding: 32px 0 0;
+      color: rgba(247, 243, 255, 0.58);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 780px) {
+      .page {
+        padding: 32px 16px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 26px;
+      }
+
+      .hero-grid,
+      .two-columns {
+        grid-template-columns: 1fr;
+      }
+
+      .summary-panel,
+      .price-panel {
+        padding: 22px;
+      }
+
+      .section p,
+      .next-step p {
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="eyebrow">Propuesta comercial</div>
+      <div>
+        <h1>Hotel Botánico</h1>
+        <p class="hero-copy">Gestión de redes sociales para construir una presencia digital más elegante, constante y preparada para convertir interés en reservas.</p>
+      </div>
+
+      <div class="hero-grid">
+        <div class="summary-panel">
+          <div class="summary-item">
+            <span>Cliente</span>
+            <strong>Hotel Botánico</strong>
+          </div>
+          <div class="summary-item">
+            <span>Servicio propuesto</span>
+            <strong>Gestión de redes sociales</strong>
+          </div>
+        </div>
+
+        <aside class="price-panel" aria-label="Precio de la propuesta">
+          <div>
+            <div class="price-label">Inversión mensual</div>
+            <div class="price">800</div>
+          </div>
+          <p class="price-note">Precio al mes por la gestión profesional del servicio propuesto.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="content">
+      <article class="section">
+        <h2>Problema que resuelve</h2>
+        <p>Un hotel necesita transmitir confianza, estilo y actividad constante antes de que el cliente decida reservar. Una gestión profesional de redes sociales ayuda a evitar perfiles desactualizados, mensajes poco claros y publicaciones sin estrategia, convirtiendo cada canal en una vitrina cuidada para atraer huéspedes.</p>
+      </article>
+
+      <div class="two-columns">
+        <article class="section">
+          <h2>Qué incluye el servicio</h2>
+          <ul class="list">
+            <li>Planificación mensual de contenido alineada con la identidad del hotel.</li>
+            <li>Creación de publicaciones para comunicar experiencia, instalaciones, promociones y momentos clave.</li>
+            <li>Redacción de textos claros, elegantes y orientados a captar interés.</li>
+            <li>Organización visual del contenido para mantener una presencia premium y coherente.</li>
+            <li>Seguimiento básico del rendimiento para ajustar el enfoque del mes siguiente.</li>
+          </ul>
+        </article>
+
+        <article class="section">
+          <h2>Beneficios para el cliente</h2>
+          <ul class="list">
+            <li>Mayor confianza al encontrar redes activas, cuidadas y profesionales.</li>
+            <li>Comunicación más clara de la experiencia que ofrece el hotel.</li>
+            <li>Mejor percepción de marca frente a posibles huéspedes.</li>
+            <li>Más oportunidades para generar consultas, visitas al perfil y reservas.</li>
+            <li>Ahorro de tiempo al delegar la gestión en un proceso ordenado.</li>
+          </ul>
+        </article>
+      </div>
+
+      <article class="section">
+        <h2>Por qué trabajar conmigo</h2>
+        <p>Trabajo con un enfoque práctico, estético y orientado a resultados. La prioridad es que Hotel Botánico tenga una presencia digital que se sienta confiable, actual y alineada con una experiencia de hospitalidad de alto nivel, sin complicar la operación diaria del negocio.</p>
+      </article>
+
+      <section class="next-step">
+        <h2>Próximo paso para comenzar</h2>
+        <p>Para iniciar, se define el enfoque visual y los mensajes principales del hotel, se organiza el calendario de contenido del primer mes y se comienza la publicación con una línea clara, profesional y consistente.</p>
+      </section>
+    </section>
+
+    <footer class="footer">
+      Propuesta preparada para Hotel Botánico.
+    </footer>
+  </main>
+</body>
+</html>
